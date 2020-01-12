@@ -5,9 +5,12 @@ namespace Lands.ViewModels
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using Xamarin.Forms;
+    using Views;
+
     public class LoginViewModel :  BaseViewModel
     {
         #region Variables
+        private string _email = String.Empty;
         private string _password = String.Empty;
         private bool _isRunning = false;
         private bool _isEnabled = false;
@@ -16,8 +19,14 @@ namespace Lands.ViewModels
         #region Propiedades
         public string Email
         {
-            get;
-            set;
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                SetValue(ref this._email, value);
+            }
         }
         public string Password
         {
@@ -64,6 +73,9 @@ namespace Lands.ViewModels
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+
+            this.Email = "rvillalvazo@hotmail.com";
+            this.Password = "hotmail";
         }
         #endregion
 
@@ -97,17 +109,19 @@ namespace Lands.ViewModels
                 {
                     this.IsRunning = false;
                     this.IsEnabled = true;
+                    this.Email = String.Empty;
+                    this.Password = String.Empty;
 
-                    await Application.Current.MainPage.DisplayAlert("Lands", "Login correcto.", "Accept");
-                    return;
+                    MainViewModel.GetInstance().Lands = new LandsViewModel();
+                    await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
                 }
                 else
                 {
                     this.IsRunning = false;
                     this.IsEnabled = true;
+                    this.Password = String.Empty;
 
                     await Application.Current.MainPage.DisplayAlert("Error", "Email o password incorrecto.", "Accept");
-                    this.Password = String.Empty;
                     return;
                 }
             }
