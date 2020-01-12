@@ -66,6 +66,8 @@ namespace Lands.ViewModels
             else
             {
                 await Application.Current.MainPage.DisplayAlert("Error", conectionstatus.Message, "Accept");
+                await Application.Current.MainPage.Navigation.PopAsync();
+
                 return;
             }
         }
