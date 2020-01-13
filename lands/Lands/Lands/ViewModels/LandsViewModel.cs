@@ -20,10 +20,9 @@ namespace Lands.ViewModels
         #endregion
 
         #region Variables
-        private ObservableCollection<CountryItemViewModel> _countries;
+        private ObservableCollection<CountryItemViewModel> _countries= new ObservableCollection<CountryItemViewModel>();
         private bool _isRefreshing = false;
         private string _filter = String.Empty;
-        private List<Country> _countriesList=new List<Country>();
         #endregion
 
         #region Propiedades
@@ -70,6 +69,7 @@ namespace Lands.ViewModels
         public LandsViewModel()
         {
             this._apiService = new ApiService();
+            MainViewModel.GetInstance().CountriesList = new List<Country>();
             this.LoadCountries();
         }
         #endregion
@@ -96,7 +96,8 @@ namespace Lands.ViewModels
                     return;
                 }
 
-                this._countriesList = (List<Country>)response.Result;
+               
+                MainViewModel.GetInstance().CountriesList = (List<Country>)response.Result;
                 this.Countries = new ObservableCollection<CountryItemViewModel>(this.ToCountryItemViewModel());
                 this.IsRefreshing = false;
             }
@@ -114,7 +115,7 @@ namespace Lands.ViewModels
         #region Metodos
         private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
         {
-            return this._countriesList.Select(c => new CountryItemViewModel
+            return MainViewModel.GetInstance().CountriesList.Select(c => new CountryItemViewModel
             {
                 Name = c.Name,
                 TopLevelDomain = c.TopLevelDomain,
