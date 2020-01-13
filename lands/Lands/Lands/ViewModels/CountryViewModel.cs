@@ -4,12 +4,11 @@
     using System.Collections.Generic;
     using System.Text;
     using Models;
+    using System.Collections.ObjectModel;
+    using System.Linq;
 
-    public class CountryViewModel
+    public class CountryViewModel:BaseViewModel
     {
-        #region Variables
-        #endregion
-
         #region Propiedades
         public CountryItemViewModel Country
         {
