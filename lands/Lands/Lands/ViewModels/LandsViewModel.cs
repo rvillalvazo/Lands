@@ -20,14 +20,14 @@ namespace Lands.ViewModels
         #endregion
 
         #region Variables
-        private ObservableCollection<Country> _countries;
+        private ObservableCollection<CountryItemViewModel> _countries;
         private bool _isRefreshing = false;
         private string _filter = String.Empty;
         private List<Country> _countriesList=new List<Country>();
         #endregion
 
         #region Propiedades
-        public ObservableCollection<Country> Countries
+        public ObservableCollection<CountryItemViewModel> Countries
         {
             get
             {
@@ -97,7 +97,7 @@ namespace Lands.ViewModels
                 }
 
                 this._countriesList = (List<Country>)response.Result;
-                this.Countries = new ObservableCollection<Country>(this._countriesList);
+                this.Countries = new ObservableCollection<CountryItemViewModel>(this.ToCountryItemViewModel());
                 this.IsRefreshing = false;
             }
             else
@@ -110,6 +110,39 @@ namespace Lands.ViewModels
             }
         }
         #endregion
+
+        #region Metodos
+        private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
+        {
+            return this._countriesList.Select(c => new CountryItemViewModel
+            {
+                Name = c.Name,
+                TopLevelDomain = c.TopLevelDomain,
+                Alpha2Code = c.Alpha2Code,
+                Alpha3Code = c.Alpha3Code,
+                CallingCodes = c.CallingCodes,
+                Capital = c.Capital,
+                AltSpellings = c.AltSpellings,
+                Region = c.Region,
+                Subregion = c.Subregion,
+                Population = c.Population,
+                Latlng = c.Latlng,
+                Demonym = c.Demonym,
+                Area = c.Area,
+                Gini = c.Gini,
+                Timezones = c.Timezones,
+                Borders = c.Borders,
+                NativeName = c.NativeName,
+                NumericCode = c.NumericCode,
+                Currencies = c.Currencies,
+                Languages = c.Languages,
+                Translations = c.Translations,
+                Flag = c.Flag,
+                RegionalBlocs = c.RegionalBlocs,
+                Cioc = c.Cioc
+            }).ToList();
+        }
+        #endregion     
 
         #region Comandos
         public ICommand RefreshCommand
@@ -132,28 +165,14 @@ namespace Lands.ViewModels
         {
             if(String.IsNullOrEmpty(this._filter))
             {
-                this.Countries = new ObservableCollection<Country>(this._countriesList);
+                this.Countries = new ObservableCollection<CountryItemViewModel>(this.ToCountryItemViewModel());
             }
             else
             {
-                this.Countries = new ObservableCollection<Country>(this._countriesList.Where(
-                                                                                             country=> country.Name.ToLower().Contains(this._filter.ToLower())
-                                                                                                    || country.Capital.ToLower().Contains(this._filter.ToLower())));
+                this.Countries = new ObservableCollection<CountryItemViewModel>(this.ToCountryItemViewModel().Where(
+                                                                                                                     country=> country.Name.ToLower().Contains(this._filter.ToLower())
+                                                                                                                            || country.Capital.ToLower().Contains(this._filter.ToLower())));
             }
-        }
-        public ICommand SelectLandCommand
-        {
-            get
-            {
-                return new RelayCommand(SelectLand);
-            }
-        }
-
-        public async void SelectLand()
-        {
-            //await Application.Current.MainPage.DisplayAlert("País Seleccionado", "", "Accept");
-
-            //return;
         }
         #endregion
     }
