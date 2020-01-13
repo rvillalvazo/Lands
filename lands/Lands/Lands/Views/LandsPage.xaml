@@ -42,7 +42,7 @@
                                 <Image
                                     Grid.Column="1"
                                     HorizontalOptions="End"
-                                    Source="ic_chevron_right">
+                                    Source="ic_shortcut_chevron_right">
                                 </Image>
                             </Grid>
                         </ViewCell>
