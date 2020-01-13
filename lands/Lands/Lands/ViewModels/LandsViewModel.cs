@@ -23,7 +23,7 @@ namespace Lands.ViewModels
         private ObservableCollection<Country> _countries;
         private bool _isRefreshing = false;
         private string _filter = String.Empty;
-        private List<Country> _countriesList=null;
+        private List<Country> _countriesList=new List<Country>();
         #endregion
 
         #region Propiedades
@@ -61,6 +61,7 @@ namespace Lands.ViewModels
             set
             {
                 SetValue(ref this._filter, value);
+                this.Search();
             }
         }
         #endregion
@@ -135,7 +136,9 @@ namespace Lands.ViewModels
             }
             else
             {
-                this.Countries = new ObservableCollection<Country>(this._countriesList.Where(country=> country.Name.ToLower().Contains(this._filter.ToLower())));
+                this.Countries = new ObservableCollection<Country>(this._countriesList.Where(
+                                                                                             country=> country.Name.ToLower().Contains(this._filter.ToLower())
+                                                                                                    || country.Capital.ToLower().Contains(this._filter.ToLower())));
             }
         }
         public ICommand SelectLandCommand
