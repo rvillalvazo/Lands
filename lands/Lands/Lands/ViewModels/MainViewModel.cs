@@ -17,6 +17,12 @@ namespace Lands.ViewModels
             get;
             set;
         }
+
+        public CountryViewModel Country
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Contructores
