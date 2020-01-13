@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.CountryPage"
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
-             Title="General Country Information"
+             Title="General"
              Icon="ic_shortcut_info_outline">
     <ContentPage.Content>
         <ScrollView
