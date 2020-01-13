@@ -24,7 +24,7 @@ namespace Lands.ViewModels
         public async void SelectLand()
         {
             MainViewModel.GetInstance().Country = new CountryViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new CountryPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new CountryTabbedPage());
         }
         #endregion
     }
