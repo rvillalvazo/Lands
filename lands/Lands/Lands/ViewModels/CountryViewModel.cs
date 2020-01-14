@@ -11,6 +11,8 @@
     {
         #region Variables
         private ObservableCollection<Border> _borders = new ObservableCollection<Border>();
+        private ObservableCollection<Currency> _currencies = new ObservableCollection<Currency>();
+        private ObservableCollection<Language> _languages = new ObservableCollection<Language>();
         #endregion
 
         #region Propiedades
@@ -31,6 +33,30 @@
                 SetValue(ref this._borders,value);
             }
         }
+
+        public ObservableCollection<Currency> Currencies
+        {
+            get
+            {
+                return this._currencies;
+            }
+            set
+            {
+                SetValue(ref this._currencies, value);
+            }
+        }
+
+        public ObservableCollection<Language> Languages
+        {
+            get
+            {
+                return this._languages;
+            }
+            set
+            {
+                SetValue(ref this._languages, value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -38,6 +64,8 @@
         {
             this.Country = country;
             this.LoadBorders();
+            this.Currencies = new ObservableCollection<Currency>(country.Currencies);
+            this.Languages = new ObservableCollection<Language>(country.Languages);
         }
         #endregion
 
