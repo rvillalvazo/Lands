@@ -6,12 +6,7 @@
              Title="Borders"
              Icon="ic_shortcut_language">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Borders"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-        <!--<StackLayout
+        <StackLayout
             Padding="5"
             BindingContext="{Binding Country}">
             <Label
@@ -47,6 +42,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>-->
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
