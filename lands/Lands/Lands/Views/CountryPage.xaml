@@ -178,6 +178,13 @@
                         Text="{Binding Country.Cioc}"
                         TextColor="Black">
                     </Label>
+                    <Label
+                        Grid.ColumnSpan="2"
+                        Grid.Row="12"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        Text="{Binding Country.Flag}">
+                    </Label>
                 </Grid>
             </StackLayout>
         </ScrollView>
