@@ -6,10 +6,42 @@
              Title="Languages"
              Icon="ic_shortcut_translate">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Languages"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            Padding="5"
+            BindingContext="{Binding Country}">
+            <Label
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="{Binding Country.Name}"
+                TextColor="Black">
+            </Label>
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Country.Languages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                        Grid.Column="0"
+                                        Text="{Binding Name}"
+                                        TextColor="Black">
+                                </Label>
+                                <Label
+                                        Grid.Column="1"
+                                        Text="{Binding NativeName}"
+                                        TextColor="Black">
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
