@@ -6,10 +6,48 @@
              Title="Currencies"
              Icon="ic_shortcut_attach_money">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Currencies"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            Padding="5"
+            BindingContext="{Binding Country}">
+            <Label
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="{Binding Country.Name}"
+                TextColor="Black">
+            </Label>
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Country.Currencies}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                        Grid.Column="0"
+                                        Text="{Binding Code}"
+                                        TextColor="Black">
+                                </Label>
+                                <Label
+                                        Grid.Column="1"
+                                        Text="{Binding Name}"
+                                        TextColor="Black">
+                                </Label>
+                                <Label
+                                        Grid.Column="2"
+                                        Text="{Binding Symbol}"
+                                        TextColor="Black">
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
