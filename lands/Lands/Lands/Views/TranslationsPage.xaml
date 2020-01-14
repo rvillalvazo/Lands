@@ -6,10 +6,138 @@
              Title="Translations"
              Icon="ic_shortcut_people">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Translations"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView
+            BindingContext="{Binding Country}">
+            <StackLayout
+                Padding="5"
+                BindingContext="{Binding Country.Translations}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        TextColor="Black"
+                        Text="Aleman">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        TextColor="Black"
+                        Text="{Binding Aleman}">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        TextColor="Black"
+                        Text="Español">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        TextColor="Black"
+                        Text="{Binding Espanol}">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        TextColor="Black"
+                        Text="Frances">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        TextColor="Black"
+                        Text="{Binding Frances}">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        TextColor="Black"
+                        Text="Japones">
+                    </Label>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        TextColor="Black"
+                        Text="{Binding Japones}">
+                    </Label>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="4" 
+                        TextColor="Black" 
+                        Text="Italiano">
+                    </Label>
+                    <Label 
+                        Grid.Column="1" 
+                        Grid.Row="4" 
+                        TextColor="Black" 
+                        Text="{Binding Italiano}">
+                    </Label>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="5" 
+                        TextColor="Black" 
+                        Text="Brasileño">
+                    </Label>
+                    <Label 
+                        Grid.Column="1" 
+                        Grid.Row="5" 
+                        TextColor="Black" 
+                        Text="{Binding Brasileno}">
+                    </Label>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="6" 
+                        TextColor="Black" 
+                        Text="Portugues">
+                    </Label>
+                    <Label 
+                        Grid.Column="1" 
+                        Grid.Row="6" 
+                        TextColor="Black" 
+                        Text="{Binding Portugues}">
+                    </Label>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="7" 
+                        TextColor="Black" 
+                        Text="Holandes">
+                    </Label>
+                    <Label 
+                        Grid.Column="1" 
+                        Grid.Row="7" 
+                        TextColor="Black" 
+                        Text="{Binding Holandes}">
+                    </Label>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="8" 
+                        TextColor="Black" 
+                        Text="Croata">
+                    </Label>
+                    <Label 
+                        Grid.Column="1" 
+                        Grid.Row="8" 
+                        TextColor="Black" 
+                        Text="{Binding Croata}">
+                    </Label>
+                    <Label 
+                        Grid.Column="0" 
+                        Grid.Row="9" 
+                        TextColor="Black" 
+                        Text="Farsi">
+                    </Label>
+                    <Label 
+                        Grid.Column="1" 
+                        Grid.Row="9" 
+                        TextColor="Black" 
+                        Text="{Binding Farsi}">
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
