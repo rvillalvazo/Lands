@@ -4,8 +4,11 @@
              xmlns:local="clr-namespace:Lands"
              x:Class="Lands.MainPage">
 
-	<Label Text="Welcome to 1er App Lands!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+    </StackLayout>
 
 </ContentPage>

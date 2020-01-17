@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Lands.Helpers"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main,Source={StaticResource Locator}}"
              Title="Login"                
@@ -35,7 +36,7 @@
                     Keyboard="Email"
                     TextColor="Yellow"
                     PlaceholderColor="White"
-                    Placeholder="Ingrese su email..."
+                    Placeholder="{i18n:Translate EmailPlaceholder}"
                     Text="{Binding Email,Mode=TwoWay}">
                 </Entry>
                 <Label
@@ -66,7 +67,7 @@
                 <Label
                     TextColor="White"
                     FontAttributes="Bold"
-                    Text="Remember Me on this device"
+                    Text="{i18n:Translate RememberMe}"
                     HorizontalOptions="StartAndExpand"
                     VerticalOptions="CenterAndExpand">
                 </Label>

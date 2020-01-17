@@ -8,7 +8,7 @@
     using System.Linq;
 
     public class CountryViewModel:BaseViewModel
-    {
+    {        
         #region Variables
         private ObservableCollection<Border> _borders = new ObservableCollection<Border>();
         private ObservableCollection<Currency> _currencies = new ObservableCollection<Currency>();

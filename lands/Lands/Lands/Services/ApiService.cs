@@ -45,20 +45,25 @@
             try
             {
                 var client = new HttpClient();
+              
                 client.BaseAddress = new Uri(urlBase);
 
-                var response = await client.PostAsync("Token",
-                    new StringContent(String.Format("grant_type=password&username={0}&password={1}",username,password),
-                    Encoding.UTF8,"application/x-www-form-urlencoded"));
+                //var response = await client.PostAsync("Token",
+                //    new StringContent(String.Format("grant_type=password&username={0}&password={1}", username, password),
+                //    Encoding.UTF8, "application/x-www-form-urlencoded"));
 
-                var resultJSON = await response.Content.ReadAsStringAsync();
+                //var resultJSON = await response.Content.ReadAsStringAsync();
+
+                var resultJSON = "{\"access_token\": \"Rhe0N73E_JUTaAOjkkc1XwROASTuqna2p2slJxPC_wcb8iczMiMd_DIlD6T8gRYa-IW157JHgWqRzEQ4oEXK_9KxrfSe83qhDoYewlNeKF6bEQebArWkWC87HfMWWRO0QKrFRVOW9cZPVT3erkVw4n58GvWwrmDUbcnFAPuyCNehX2wEuK5uphYIOAidSQrB3zSiIc3zlM8N1ivD6cYmrNkXbG6KkYXqJl0bV-iRPO9EpK8-uNBSRupsR9_YR7bfEOGNjkUJyZY06wKik5GaQ-NBAJSgqbpLq18Mib3_K0e78lOsSf1UCUy1M1ohX5TVvF_coFEaF797nEqlBBupMWVfahGZYDmd8diV3VpYOyVmHXA_DIGUEt1QTMX_OclEz6APMDKS4AkHL-mY8oaDOGcgu03fU8T2OjHODA-rAoisUWFFtFeW7FlHQY0PMkJTC9OU-40wyV7Wgv9LE95MGOPjXcYhBKNP6Lh_65zsnRqXs9FJbmPax11pqj_TH8uA\",    \"token_type\": \"bearer\",    \"expires_in\": 1209599,\"userName\": \"rvillalvazo@hotmail.com\",\".issued\": \"Wed, 15 Jan 2020 00:56:57 GMT\",\".expires\": \"Wed, 29 Jan 2020 00:56:57 GMT\"}";
+
 
                 var result = JsonConvert.DeserializeObject<TokenResponse>(resultJSON);
 
                 return result;
             }
-            catch
+            catch(Exception ex)
             {
+                string error = ex.Message;
                 return null;
             }
         }
